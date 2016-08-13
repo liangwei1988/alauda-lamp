@@ -1,6 +1,7 @@
 <VirtualHost *:80>
         ServerAdmin webmaster@localhost
-
+	AddType text/html .shtml .html
+        AddOutputFilter INCLUDES .shtml .html .php
         DocumentRoot /var/www/html
         <Directory />
                 Options FollowSymLinks
@@ -8,6 +9,7 @@
         </Directory>
         <Directory /var/www/html>
                 Options Indexes FollowSymLinks MultiViews
+		Options Indexes FollowSymLinks Includes
                 # To make wordpress .htaccess work
                 AllowOverride FileInfo
                 Order allow,deny
